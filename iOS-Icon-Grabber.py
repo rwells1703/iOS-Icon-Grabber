@@ -39,11 +39,11 @@ def downloadIcon(app_id, file_name):
 
     #Give the output file a name
     #Use the app id for the file name (this is default)
-    if file_name == "{app_id}" or file_name == "":
+    if file_name == "(app_id)" or file_name == "":
         file_name = app_id
 
     #Use the app name for the filename
-    elif file_name == "{app_name}":
+    elif file_name == "(app_name)":
         #Trim text from the start the image url
         file_name = trim(data,'trackName":"',"forward")
         #Trim text from the end the image url
@@ -66,23 +66,24 @@ def main():
     #Loop through all command line arguments apart from the file name
     pos = 1
     while pos < len(argv):
-        if argv[pos] == "-app_id":
+        if argv[pos] == "--app_id" or argv[pos] == "-A":
             if not pos == len(argv) - 1:
                 app_id = argv[pos+1]
                 pos += 1
                 
-        elif argv[pos] == "-file_name":
+        elif argv[pos] == "--file_name" or argv[pos] == "-F":
             if not pos == len(argv) - 1:
                 file_name = argv[pos+1]
                 pos += 1
             else:
                 print("You haven't specified the file name")
-
+        
         #Handles unknown arguments
         else:
-            print("unrecognised argument: " + argv[pos])
+            print("Unrecognised argument: " + argv[pos])
+            
         pos += 1
-
+    
     downloadIcon(app_id,file_name)
 
 main()   

@@ -1,25 +1,32 @@
 # iOS-Icon-Grabber
+A basic Python 3 script to download an app icon from the iOS App Store as a 512x512 jpeg image.
 
-A basic Python3 script to download an app icon from the Apple App Store as a 512x512 jpg image.
-
-To get the app id for an app, visit the itunes website on a computer and find the app you want the icon for. The URL should resemble the following:
+## Executing the script
+Execute from command line using the following arguments:
 ```
-https://itunes.apple.com/us/app/<APPNAME>/id<APPID>?mt=8
-```
-
-Execute the script from the command line using the following arguments:
-```
-python iOS-Icon-Grabber.py -app_id <yourappid> [-file_name <yourfilename>]
+python iOS-Icon-Grabber.py [options]
 ```
 
-There are currently 3 possible file name schemes:
-1. '{app_id}' which uses the app id as the filename (this is default if you do not specify).
-2. '{app_name}' which uses the app name as the filename.
-2. 'your custom name here' which uses what ever you pass in as the file name (be careful because if you download multiple icons, the old one will be overwritten).
-
-Here is an example of using the script to download the icon for Google Photos and using the apps name as the filename:
+## Finding the app id
+Visit the [iOS App Store](https://itunes.apple.com/gb/genre/ios/id36?mt=8) and find the app you want the icon for. The URL should resemble the following:
 ```
-python iOS-Icon-Grabber.py -app_id 962194608 -file_name {app_name}
+https://itunes.apple.com/gb/app/<APPNAME>/id<APPID>?mt=8
+```
+
+## Options
+#### -A, --app_id [app id]
+Specifies the app id for the app icon you want e.g. [962194608](https://itunes.apple.com/gb/app/google-photos/id962194608?mt=8).
+
+#### -F, --file_name [file name]
+It supports the following file names:
+* **(app_id)** - which uses the app id as the file name (default).
+* **(app_name)** - which uses the app name as the file name.
+* Otherwise it will use whatever you pass in.
+
+## Example usage
+An example of using the script to download the icon for Google Photos and using the app name as the file name:
+```
+python iOS-Icon-Grabber.py -A 962194608 -F (app_name)
 ```
 
 Enjoy!
