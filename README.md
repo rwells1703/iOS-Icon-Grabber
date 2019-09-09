@@ -4,7 +4,7 @@ A basic Python 3 script to download an app icon from the iOS App Store as a 512x
 ## Executing the script
 Execute from command line using the following arguments:
 ```
-python iOS-Icon-Grabber.py [options]
+$ python iOS-Icon-Grabber.py [options]
 ```
 
 ## Finding the app id
@@ -26,7 +26,7 @@ It supports the following file names:
 ## Example usage
 An example of using the script to download the icon for Google Photos and using the app name as the file name:
 ```
-python iOS-Icon-Grabber.py -A 962194608 -F (app_name)
+$ python iOS-Icon-Grabber.py -A 962194608 -F (app_name)
 ```
 
 Enjoy!
